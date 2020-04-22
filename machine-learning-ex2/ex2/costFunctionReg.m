@@ -5,22 +5,23 @@ function [J, grad] = costFunctionReg(theta, X, y, lambda)
 %   gradient of the cost w.r.t. to the parameters. 
 
 % Initialize some useful values
-m = length(y); % number of training examples
+[m, n] = size(X);
 
 % You need to return the following variables correctly 
 J = 0;
-grad = zeros(size(theta));
+grad = zeros(n, 1);
 
-% ====================== YOUR CODE HERE ======================
-% Instructions: Compute the cost of a particular choice of theta.
-%               You should set J to the cost.
-%               Compute the partial derivatives and set grad to the partial
-%               derivatives of the cost w.r.t. each parameter in theta
+% cost function
+h_theta = sigmoid(X * theta);
+J = -1/m * (y' * log(h_theta) + (1 - y)' * log(1 - h_theta)) + ...
+   0.5*lambda/m * (theta'*theta - theta(1)^2); 
 
-
-
-
-
+% derivatives
+grad(1) = 1/m * (h_theta - y)' * X(:,1);
+for j=2:n
+  xj = X(:,j);
+  grad(j) = 1/m * (h_theta - y)' * xj + lambda/m * theta(j);   
+endfor
 
 % =============================================================
 
