@@ -1,0 +1,20 @@
+>> submit()
+== Submitting solutions | Multi-class Classification and Neural Networks...
+Login (email address): valentin.aj.roy@gmail.com
+Token: iC2CxCRSxs80tA29
+Iteration    25 | Cost: 3.391340e-01
+Iteration    20 | Cost: 6.631438e-02
+Iteration    35 | Cost: 1.002636e-01
+Iteration    18 | Cost: 3.598119e-01
+warning: findstr is obsolete; use strfind instead
+warning: strmatch is obsolete; use strncmp or strcmp instead
+==
+==                                   Part Name |     Score | Feedback
+==                                   --------- |     ----- | --------
+==             Regularized Logistic Regression |  30 /  30 | Nice work!
+==              One-vs-All Classifier Training |  20 /  20 | Nice work!
+==            One-vs-All Classifier Prediction |  20 /  20 | Nice work!
+==          Neural Network Prediction Function |  30 /  30 | Nice work!
+==                                   --------------------------------
+==                                             | 100 / 100 |
+==
