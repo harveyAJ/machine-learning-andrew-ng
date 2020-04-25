@@ -10,7 +10,7 @@
 %     sigmoidGradient.m
 %     randInitializeWeights.m
 %     nnCostFunction.m
-%
+%clc
 %  For this exercise, you will not need to change any code in this file,
 %  or any other files other than those mentioned above.
 %
@@ -41,8 +41,8 @@ sel = sel(1:100);
 
 displayData(X(sel, :));
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+%fprintf('Program paused. Press enter to continue.\n');
+%pause;
 
 
 %% ================ Part 2: Loading Parameters ================
@@ -101,7 +101,6 @@ fprintf(['Cost at parameters (loaded from ex4weights): %f '...
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-
 
 %% ================ Part 5: Sigmoid Gradient  ================
 %  Before you start implementing the neural network, you will first
@@ -230,5 +229,3 @@ pause;
 pred = predict(Theta1, Theta2, X);
 
 fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
-
-
