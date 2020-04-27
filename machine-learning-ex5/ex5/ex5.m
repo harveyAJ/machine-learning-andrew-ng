@@ -166,6 +166,8 @@ pause;
 
 lambda = 0;
 [theta] = trainLinearReg(X_poly, y, lambda);
+%The following should return 3.8599 for lambda=3
+test = linearRegCostFunction(X_poly_test, ytest, theta, 0); 
 
 % Plot training data and fit
 figure(1);
@@ -218,3 +220,4 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
