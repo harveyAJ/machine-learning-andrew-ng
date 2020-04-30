@@ -1,0 +1,17 @@
+== Submitting solutions | K-Means Clustering and PCA...
+Login (email address): valentin.aj.roy@gmail.com
+Token: SaHHeuCbU93tOXio
+warning: findstr is obsolete; use strfind instead
+warning: strmatch is obsolete; use strncmp or strcmp instead
+==
+==                                   Part Name |     Score | Feedback
+==                                   --------- |     ----- | --------
+==            Find Closest Centroids (k-Means) |  30 /  30 | Nice work!
+==            Compute Centroid Means (k-Means) |  30 /  30 | Nice work!
+==                                         PCA |  20 /  20 | Nice work!
+==                          Project Data (PCA) |  10 /  10 | Nice work!
+==                          Recover Data (PCA) |  10 /  10 | Nice work!
+==                                   --------------------------------
+==                                             | 100 / 100 |
+==
+>>
