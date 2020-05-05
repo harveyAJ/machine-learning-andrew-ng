@@ -6,7 +6,7 @@ function [J, grad] = cofiCostFunc(params, Y, R, num_users, num_movies, ...
 %   collaborative filtering problem.
 %
 
-% Unfold the U and W matrices from params
+% Unfold the X and Theta matrices from params
 X = reshape(params(1:num_movies*num_features), num_movies, num_features);
 Theta = reshape(params(num_movies*num_features+1:end), ...
                 num_users, num_features);
@@ -40,20 +40,31 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
+Delta = (X * Theta' - Y).^2;
 
+J = 0.5 * sum(sum(Delta(R==1))) + ...
+    0.5 * lambda * trace(Theta' * Theta) + ...
+    0.5 * lambda * trace(X' * X);
 
+%Looping over the movies
+for i = 1:num_movies
+  idx = find(R(i,:) == 1); %users that rated movie i
+  Theta_temp = Theta(idx,:); %nu * n
+  Y_temp = Y(i, idx); %1 * nu
+  
+  X_grad(i, :) = ((X(i,:) * Theta_temp' - Y_temp) * Theta_temp)' + ...
+                 lambda * X(i,:)';
+endfor
 
-
-
-
-
-
-
-
-
-
-
-
+%Looping over the users
+for j = 1:num_users
+  idx = find(R(:,j) == 1); %movies rated by user j
+  X_temp = X(idx, :);  % nm * n
+  Y_temp = Y(idx, j); % nm * 1
+  
+  Theta_grad(j, :) = ((X_temp * Theta(j,:)' - Y_temp)' * X_temp)' + ...
+                      lambda * Theta(j,:)';
+endfor
 
 % =============================================================
 
